@@ -1,0 +1,13 @@
+{% if latest_message_list %}
+<ul>
+    {% for message in latest_message_list %}
+    <li>From:{{message.sender_id}} To:{{ message.receiver_id }} Message:{{ message.message_text }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No messages are available.</p>
+{% endif %}
+
+<form action="{% url 'polls:create_message'%}" method="get">
+    <input type="submit" value="Create Message" />
+</form>
